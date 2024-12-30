@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: inlaze-frontend
-          image: lkranl/inlaze-frontend-challenge:v1.2
+          image: lkranl/inlaze-frontend-challenge:v1.0
           ports:
             - containerPort: 3000
           resources:
