@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inlaze-frontend
+  namespace: default
+  labels:
+    app: inlaze-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: inlaze-frontend
+  template:
+    metadata:
+      labels:
+        app: inlaze-frontend
+    spec:
+      containers:
+        - name: inlaze-frontend
+          image: lkranl/inlaze-frontend-challenge:v1.2
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+              ephemeral-storage: "700Mi"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+              ephemeral-storage: "700Mi"
+      automountServiceAccountToken: false

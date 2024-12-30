@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: inlaze-frontend-service
+  namespace: default
+  labels:
+    app: inlaze-frontend
+spec:
+  selector:
+    app: inlaze-frontend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
